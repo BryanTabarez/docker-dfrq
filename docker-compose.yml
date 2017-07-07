@@ -1,0 +1,32 @@
+version: '2'  
+services:  
+  nginx:
+    restart: always
+    image: nginx
+    container_name: nginx
+    # HOST:CONTAINER
+    ports:
+      - "80:8001"
+    volumes:
+      - ./dfrq:/dfrq
+      - ./nginxdjango.conf:/etc/nginx/conf.d/django.conf
+    depends_on:
+      - web
+  web:
+    restart: always
+    build: .
+    container_name: web
+    depends_on:
+      - db
+    volumes:
+      - ./dfrq:/dfrq
+      - ./srv.logs:/srv/logs/
+    # expone puertos a los servicios (no al host)
+    expose:
+      - "8000"
+    working_dir: /dfrq
+    # env_file: web-variables.env
+  db:
+    restart: always
+    image: postgres
+    container_name: db

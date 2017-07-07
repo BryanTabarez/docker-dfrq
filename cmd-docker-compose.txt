@@ -1,0 +1,14 @@
+ docker-compose build
+ docker-compose up (-d)
+ docker-compose stop
+ docker-compose ps
+ docker-compose 
+
+ docker-compose logs nginx  
+
+ sudo netstat -plnt
+###stop apache
+ sudo /etc/init.d/apache2 stop
+
+###clean up these dangling images.
+ docker rmi $(docker images -f "dangling=true" -q)
