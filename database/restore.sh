@@ -1,0 +1,1 @@
+pg_restore --verbose --clean --no-acl --no-owner -U ubuntu -d dfre-db /tmp/data.dump
