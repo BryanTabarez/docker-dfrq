@@ -30,3 +30,6 @@ services:
     restart: always
     image: postgres
     container_name: db
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/data.sql:/docker-entrypoint-initdb.d/2-data.sql
