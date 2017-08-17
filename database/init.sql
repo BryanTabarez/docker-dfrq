@@ -1,2 +1,3 @@
 CREATE USER ubuntu PASSWORD 'dfredb';
 CREATE DATABASE "dfre-db" WITH ENCODING 'UTF8' OWNER 'ubuntu';
+GRANT ALL PRIVILEGES ON DATABASE "dfre-db" TO ubuntu;

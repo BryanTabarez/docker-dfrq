@@ -33,4 +33,4 @@ services:
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./database/data.dump:/tmp/data.dump
-      - ./database/restore.sh:/tmp/restore.sh
+      - ./database/restore.sh:/docker-entrypoint-initdb.d/2-restore.sh
